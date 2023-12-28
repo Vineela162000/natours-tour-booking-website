@@ -1,0 +1,234 @@
+
+
+.section-tours{
+  background-color: $color-gray-light-1;
+  padding: 10rem 5rem 3rem;
+}
+
+// card
+
+.card{
+  background-color: #ffffff;
+
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem;
+  &-side{
+
+    transition: all 0.8s ease;
+    position: absolute;
+    top:0;
+    left:0;
+    height: 50rem;
+    width:100%;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    border-radius: 3px;
+
+  &-front{
+
+    // &-1{
+
+    // }
+
+    // &-2{
+
+    // }
+
+    // &-3{
+
+    // }
+  }
+  &-back{
+    transform : rotateY(180deg);
+
+    &-1{
+      background-image: linear-gradient(to right bottom, $color-secondary-light-1, $color-secondary-dark-1);
+    }
+
+    &-2{
+      background-image: linear-gradient(to right bottom, $color-secondary-light-2, $color-secondary-dark-2);
+    }
+
+    &-3{
+      background-image: linear-gradient(to right bottom, $color-secondary-light-3, $color-secondary-dark-3);
+    }
+
+  }
+  }
+
+  &:hover &-side-front{
+    transform: rotateY(-180deg);
+  }
+  &:hover &-side-back{
+    transform: rotateY(0deg);
+  }
+
+  //front-side styling
+
+  &-picture{
+    background-size: cover;
+    height: 50%;
+    background-blend-mode:screen;
+
+    -webkit-clip-path:polygon(0 0,100% 0,100% 85%, 0 100%);
+    clip-path: polygon(0 0,100% 0,100% 85%, 0 100%);
+
+
+    &-1{
+      background-image: linear-gradient(to right bottom , $color-secondary-light-1, $color-secondary-dark-1), url(../img/nat-5.jpg);
+    }
+
+    &-2{
+      background-image: linear-gradient(to right bottom , $color-secondary-light-2, $color-secondary-dark-2), url(../img/nat-6.jpg);
+    }
+
+    &-3{
+      background-image: linear-gradient(to right bottom , $color-secondary-light-3, $color-secondary-dark-3), url(../img/nat-7.jpg);
+    }
+
+  }
+
+  &-heading{
+    font-size:2.3rem;
+    font-weight:300;
+    text-transform:uppercase;
+    color:white;
+    text-align:right;
+    position:absolute;
+    top:35%;
+    right:2rem;
+    width:75%;
+
+
+  }
+
+  &-heading-span{
+     padding: 10px;
+     -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    &-1{
+        background-image: linear-gradient(to right bottom, rgba($color-secondary-light-1,0.8), rgba($color-secondary-dark-1,0.8) );
+    }
+    &-2{
+      background-image: linear-gradient(to right bottom, rgba($color-secondary-light-2,0.8), rgba($color-secondary-dark-2,0.8) );
+    }
+    &-3{
+    background-image: linear-gradient(to right bottom, rgba($color-secondary-light-3,0.8), rgba($color-secondary-dark-3,0.8) );
+}
+  }
+
+  &-details{
+    padding:0 3rem 3rem;
+    ul{
+      margin: 0 auto;
+      list-style:none;
+      width:80%;
+
+      li{
+         text-align:center;
+        font-size:$default-font-size;
+        padding:1rem;
+
+        &:first-child{
+          margin-top:1rem;
+        }
+        &:not(:last-child){
+          border-bottom: 0.1rem solid #eee;
+        }
+      }
+    }
+  }
+
+    //back-side styling
+
+    &-cta{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      text-align: center;
+    }
+
+    &-price{
+      color:white;
+      margin-bottom:8rem;
+      text-align: center;
+    }
+    &-price-only{
+      font-size:$default-font-size;
+      // text-transform:uppercase;
+
+    }
+
+    &-price-value{
+        font-weight:100;
+        font-size:6rem;
+
+    }
+
+
+
+    // @include respond(tab-port){
+
+    @media only screen and (max-width:56.25em),
+    only screen and (hover:none) {
+      //  for device that does not touch as primary input
+      height: auto;
+      border-radius: 3px;
+      background-color: white;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      &-side{
+        position: relative;
+        height:55rem;
+        box-shadow: none;
+      &-back{
+        height:auto;
+        padding-bottom: 4rem;
+        transform : rotateY(0deg);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+      }
+
+
+      &-details{
+        padding:1rem;
+        ul{
+          li{
+            font-size:1.8rem;
+
+          }
+        }
+      }
+
+      &:hover &-side-front{
+        transform: rotateY(0deg);
+      }
+
+        //back-side styling
+
+        &-cta{
+          position:relative;
+          top:0;
+          left:0;
+          width:100%;
+          transform:translate(0);
+        }
+
+        &-price{
+          color:white;
+          margin-bottom:4rem;
+          text-align: center;
+        }
+
+        &-price-only{
+          padding-top:8rem;
+        }
+        &-price-value{
+            font-weight:100;
+            font-size:6rem;
+
+        }
+    }
+  }
